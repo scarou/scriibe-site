@@ -34,23 +34,24 @@
     <h1>Tu parles, Scriibe écrit.</h1>
     <p class="sous-titre">Maintiens une touche, parle, relâche : ton texte est transcrit, mis au propre et collé dans l'appli ouverte. Pour Windows, Mac et Linux, libre et gratuit.</p>
 
-    <figure class="film" style="margin-bottom:0">
+    <div class="boutons" id="boutons">
+      <a class="btn" data-os="windows" href="https://github.com/scarou/Scriibe/releases/latest/download/scriibe-windows-x64.zip">Télécharger pour Windows</a>
+      <a class="btn" data-os="mac" href="https://github.com/scarou/Scriibe/releases/latest">Télécharger pour Mac</a>
+      <a class="btn" data-os="linux" href="https://github.com/scarou/Scriibe/releases/latest/download/scriibe-linux-x64.zip">Télécharger pour Linux</a>
+    </div>
+    <p class="prerequis">Windows 10 ou 11 · Mac avec puce Apple, macOS 14 ou plus récent · Ubuntu 25.04 ou plus avec GNOME, ou une session X11. Sur Mac, le bouton ouvre la page de la version : prends le fichier qui finit par <code>macos.zip</code>.</p>
+    <p class="prerequis"><strong>Scriibe n'est pas signée</strong> : ton système te préviendra au premier lancement, et les <a href="#telecharger">guides pas à pas</a> montrent comment l'ouvrir. Aucun compte n'est nécessaire.</p>
+
+    <figure class="film">
       <video id="film" autoplay muted loop playsinline preload="metadata" poster="media/film/scriibe-film-a-attente.jpg" width="1280" height="720" aria-label="Scriibe en une minute">
         <source src="media/film/scriibe-film-a-final.mp4" type="video/mp4">
         <img src="media/film/scriibe-film-a-final.gif" alt="Scriibe en une minute" width="1280" height="720">
       </video>
     </figure>
-    <div class="film-bar" style="margin-top:.6rem">
+    <div class="film-bar">
       <span class="muted">Scriibe en une minute</span>
       <button class="btn sec petit" id="son" type="button" aria-pressed="false">Activer le son</button>
     </div>
-
-    <div class="boutons">
-      <a class="btn" href="https://github.com/scarou/Scriibe/releases/latest/download/scriibe-windows-x64.zip">Télécharger pour Windows</a>
-      <a class="btn" href="https://github.com/scarou/Scriibe/releases/latest">Télécharger pour Mac</a>
-      <a class="btn" href="https://github.com/scarou/Scriibe/releases/latest/download/scriibe-linux-x64.zip">Télécharger pour Linux</a>
-    </div>
-    <p class="discret"><a href="https://github.com/scarou/Scriibe/releases">Toutes les versions</a></p>
   </div>
 </section>
 
@@ -68,33 +69,45 @@
 <section id="fonctions">
   <div class="wrap">
     <h2>Ce qu'elle sait faire</h2>
-    <ul class="fonctions">
-      <li><strong>Partout</strong> : dans n'importe quelle appli où tu peux écrire (sous Linux, dans un terminal, tu colles à la main).</li>
-      <li><strong>Sur ta machine d'abord</strong> : transcription avec Whisper et mise au propre avec llama.cpp, LM Studio ou Ollama, dont les modèles se téléchargent depuis l'appli avec ton accord à chaque fois (les programmes, eux, s'installent à part sur Mac, par Homebrew). Si ta machine est trop juste, tu peux passer par des services en ligne avec tes propres clés.</li>
-      <li><strong>Style d'écriture</strong> : choisis comment ton texte est mis au propre (modes prêts à l'emploi ou les tiens).</li>
-      <li><strong>Commandes vocales</strong> : sous une seconde touche, dis « nouvelle recherche Google, YouTube, Wikipédia ou DuckDuckGo » suivi du sujet, insère un extrait, ouvre une appli, commence un nouveau mail, ou dis « entre guillemets » pour entourer ta dernière dictée.</li>
-      <li><strong>Reformuler une sélection</strong> (Mac et Windows ; pas sous Linux, où il n'y a pas non plus de gras ni d'italique) : sélectionne un texte et dis « cherche les fautes », « rends ça plus amical » ou « traduis en anglais ».</li>
-      <li><strong>Ton dictionnaire</strong> : tes mots, tes noms propres et tes corrections, modifiables sur place ou dans un tableur.</li>
-      <li><strong>Historique</strong> : tes dictées regroupées par jour, avec un filtre par appli et par période.</li>
-      <li><strong>Traduction</strong> : une touche pour dicter dans une autre langue.</li>
-      <li><strong>Profils</strong> : plusieurs utilisateurs sur la même machine ; sauvegarde complète, export et import pour changer d'ordinateur.</li>
-      <li><strong>Aide intégrée</strong>, avec une recherche qui marche hors ligne. <strong>Interface en français et en anglais.</strong></li>
-    </ul>
+    <div class="piliers">
+      <div>
+        <h3>Partout</h3>
+        <p>Dans n'importe quelle appli où tu peux écrire (sous Linux, dans un terminal, tu colles à la main).</p>
+      </div>
+      <div>
+        <h3>Sur ta machine d'abord</h3>
+        <p>Whisper transcrit ta voix, puis llama.cpp, LM Studio ou Ollama mettent le texte au propre, le tout sur ton ordinateur. Les modèles se téléchargent depuis l'appli, avec ton accord à chaque fois. Si ta machine est trop juste, tu peux passer par des services en ligne avec tes propres clés.</p>
+      </div>
+    </div>
 
     <div class="captures">
       <figure>
-        <img src="media/captures/accueil.png" width="1040" height="896" loading="lazy" decoding="async" alt="Capture de l'accueil de Scriibe : chiffres de dictée, graphique sur 14 jours et part par appli">
-        <figcaption>Accueil (tableau de bord)</figcaption>
-      </figure>
-      <figure>
         <img src="media/captures/commandes-vocales.png" width="1044" height="1222" loading="lazy" decoding="async" alt="Capture de la page Commandes vocales de Scriibe, carte des commandes intégrées dépliée">
-        <figcaption>Commandes vocales</figcaption>
+        <h3>Commandes vocales</h3>
+        <p>Sous une seconde touche, dis « nouvelle recherche Google, YouTube, Wikipédia ou DuckDuckGo » suivi du sujet, insère un extrait, ouvre une appli, commence un nouveau mail, ou dis « entre guillemets » pour entourer ta dernière dictée.</p>
       </figure>
       <figure>
         <img src="media/captures/dictionnaire.png" width="1040" height="1086" loading="lazy" decoding="async" alt="Capture du dictionnaire de Scriibe : mots, corrections et signes dictés">
-        <figcaption>Dictionnaire</figcaption>
+        <h3>Ton dictionnaire</h3>
+        <p>Tes mots, tes noms propres et tes corrections, modifiables sur place ou dans un tableur.</p>
+      </figure>
+      <figure>
+        <img src="media/captures/accueil.png" width="1040" height="896" loading="lazy" decoding="async" alt="Capture de l'accueil de Scriibe : chiffres de dictée, graphique sur 14 jours et part par appli">
+        <h3>Ton tableau de bord</h3>
+        <p>Tes chiffres de dictée, un graphique sur 14 jours, la part par appli ; l'historique regroupe tes dictées par jour, avec un filtre par appli et par période.</p>
       </figure>
     </div>
+
+    <details class="et-aussi">
+      <summary>Et aussi</summary>
+      <ul>
+        <li><strong>Style d'écriture</strong> : choisis comment ton texte est mis au propre (modes prêts à l'emploi ou les tiens).</li>
+        <li><strong>Reformuler une sélection</strong> (Mac et Windows ; pas sous Linux, où il n'y a pas non plus de gras ni d'italique) : sélectionne un texte et dis « cherche les fautes », « rends ça plus amical » ou « traduis en anglais ».</li>
+        <li><strong>Traduction</strong> : une touche pour dicter dans une autre langue.</li>
+        <li><strong>Profils</strong> : plusieurs utilisateurs sur la même machine ; sauvegarde complète, export et import pour changer d'ordinateur.</li>
+        <li><strong>Aide intégrée</strong>, avec une recherche qui marche hors ligne. <strong>Interface en français et en anglais.</strong></li>
+      </ul>
+    </details>
   </div>
 </section>
 
@@ -155,6 +168,11 @@
     </details>
 
     <details>
+      <summary>Faut-il installer autre chose ?</summary>
+      <p>Les modèles locaux se téléchargent depuis l'appli, avec ton accord, un par un. Les programmes qui les font tourner s'installent à part sur Mac, par Homebrew : le <a href="https://github.com/scarou/Scriibe/blob/main/docs/INSTALLATION_MACOS.md">guide pas à pas du Mac</a> montre comment.</p>
+    </details>
+
+    <details>
       <summary>Faut-il une machine puissante ?</summary>
       <p>Le local marche mieux avec une bonne carte graphique ou une puce Apple. Sur un portable modeste, la dictée reste possible, plus lente ; les moteurs en ligne sont alors plus rapides. Pour la reformulation, un modèle de quelques milliards de paramètres est conseillé.</p>
     </details>
@@ -212,6 +230,10 @@
     if(on){v.currentTime=0;}
     var p=v.play(); if(p&&p.catch)p.catch(function(){});
   });
+  var ua=(navigator.userAgentData&&navigator.userAgentData.platform||navigator.platform||'')+' '+navigator.userAgent, os='';
+  if(/iPhone|iPad|Android/i.test(ua))os='';
+  else if(/Win/i.test(ua))os='windows'; else if(/Mac/i.test(ua))os='mac'; else if(/Linux|X11/i.test(ua))os='linux';
+  if(os){var bs=document.querySelectorAll('#boutons .btn');for(var i=0;i<bs.length;i++){if(bs[i].getAttribute('data-os')!==os)bs[i].className='btn sec';}}
   var r=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)');
   if(r&&r.matches){v.removeAttribute('autoplay');v.pause();v.setAttribute('controls','');}
 })();
