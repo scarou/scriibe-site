@@ -48,6 +48,7 @@ nav a.cta{color:var(--brand);font-weight:700}
 .film video,.film img{width:100%;aspect-ratio:16/9;object-fit:cover}
 .film-bar{display:flex;flex-wrap:wrap;gap:.5rem 1rem;align-items:center;justify-content:space-between;margin:.6rem 0 1.5rem}
 .film-bar figcaption{color:var(--muted)}
+.film-actions{display:flex;flex-wrap:wrap;gap:.5rem}
 .btn{display:inline-block;font:inherit;font-weight:700;text-decoration:none;cursor:pointer;border:2px solid var(--brand);border-radius:999px;padding:.7rem 1.3rem;background:var(--brand);color:var(--brand-ink);min-height:44px}
 .btn:hover{filter:brightness(1.08)}
 .btn.sec{background:transparent;color:var(--brand)}
