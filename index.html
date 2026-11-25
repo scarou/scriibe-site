@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scriibe — dictée vocale</title>
+<meta name="description" content="Maintiens une touche, parle, relâche : ton texte est transcrit, mis au propre et collé dans l'appli ouverte. Pour Windows, Mac et Linux, libre et gratuit.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" type="image/svg+xml" href="media/logo/scriibe-icone-macos.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="#haut" aria-label="Scriibe, haut de page">
+      <img class="clair" src="media/logo/scriibe-logotype-macos.svg" alt="Scriibe" width="491" height="172">
+      <img class="sombre" src="media/logo/scriibe-logotype-macos-sombre.svg" alt="Scriibe" width="491" height="172">
+    </a>
+    <nav aria-label="Principal">
+      <a href="#telecharger">Télécharger</a>
+      <a href="#fonctions">Ce qu'elle sait faire</a>
+      <a href="#questions">Questions</a>
+      <a href="https://github.com/scarou/Scriibe">Code source (GitHub)</a>
+      <a class="cta" href="#soutenir">Soutenir</a>
+    </nav>
+  </div>
+</header>
+
+<main id="haut">
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Tu parles, Scriibe écrit.</h1>
+    <p class="sous-titre">Maintiens une touche, parle, relâche : ton texte est transcrit, mis au propre et collé dans l'appli ouverte. Pour Windows, Mac et Linux, libre et gratuit.</p>
+
+    <figure class="film" style="margin-bottom:0">
+      <video id="film" autoplay muted loop playsinline preload="metadata" poster="media/film/scriibe-film-a-attente.jpg" width="1280" height="720" aria-label="Scriibe en une minute">
+        <source src="media/film/scriibe-film-a-final.mp4" type="video/mp4">
+        <img src="media/film/scriibe-film-a-final.gif" alt="Scriibe en une minute" width="1280" height="720">
+      </video>
+    </figure>
+    <div class="film-bar" style="margin-top:.6rem">
+      <span class="muted">Scriibe en une minute</span>
+      <button class="btn sec petit" id="son" type="button" aria-pressed="false">Activer le son</button>
+    </div>
+
+    <div class="boutons">
+      <a class="btn" href="https://github.com/scarou/Scriibe/releases/latest/download/scriibe-windows-x64.zip">Télécharger pour Windows</a>
+      <a class="btn" href="https://github.com/scarou/Scriibe/releases/latest">Télécharger pour Mac</a>
+      <a class="btn" href="https://github.com/scarou/Scriibe/releases/latest/download/scriibe-linux-x64.zip">Télécharger pour Linux</a>
+    </div>
+    <p class="discret"><a href="https://github.com/scarou/Scriibe/releases">Toutes les versions</a></p>
+  </div>
+</section>
+
+<section id="comment">
+  <div class="wrap">
+    <h2>Comment ça marche</h2>
+    <ol class="etapes">
+      <li><strong>Maintiens</strong> ta touche de dictée (Option droite sur Mac, Ctrl droit sur Windows, Ctrl+← sous Linux ; réglable).</li>
+      <li><strong>Parle</strong> normalement.</li>
+      <li><strong>Relâche</strong> : le texte arrive là où se trouve ton curseur, ponctué et mis au propre.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="fonctions">
+  <div class="wrap">
+    <h2>Ce qu'elle sait faire</h2>
+    <ul class="fonctions">
+      <li><strong>Partout</strong> : dans n'importe quelle appli où tu peux écrire (sous Linux, dans un terminal, tu colles à la main).</li>
+      <li><strong>Sur ta machine d'abord</strong> : transcription avec Whisper et mise au propre avec llama.cpp, LM Studio ou Ollama, dont les modèles se téléchargent depuis l'appli avec ton accord à chaque fois (les programmes, eux, s'installent à part sur Mac, par Homebrew). Si ta machine est trop juste, tu peux passer par des services en ligne avec tes propres clés.</li>
+      <li><strong>Style d'écriture</strong> : choisis comment ton texte est mis au propre (modes prêts à l'emploi ou les tiens).</li>
+      <li><strong>Commandes vocales</strong> : sous une seconde touche, dis « nouvelle recherche Google, YouTube, Wikipédia ou DuckDuckGo » suivi du sujet, insère un extrait, ouvre une appli, commence un nouveau mail, ou dis « entre guillemets » pour entourer ta dernière dictée.</li>
+      <li><strong>Reformuler une sélection</strong> (Mac et Windows ; pas sous Linux, où il n'y a pas non plus de gras ni d'italique) : sélectionne un texte et dis « cherche les fautes », « rends ça plus amical » ou « traduis en anglais ».</li>
+      <li><strong>Ton dictionnaire</strong> : tes mots, tes noms propres et tes corrections, modifiables sur place ou dans un tableur.</li>
+      <li><strong>Historique</strong> : tes dictées regroupées par jour, avec un filtre par appli et par période.</li>
+      <li><strong>Traduction</strong> : une touche pour dicter dans une autre langue.</li>
+      <li><strong>Profils</strong> : plusieurs utilisateurs sur la même machine ; sauvegarde complète, export et import pour changer d'ordinateur.</li>
+      <li><strong>Aide intégrée</strong>, avec une recherche qui marche hors ligne. <strong>Interface en français et en anglais.</strong></li>
+    </ul>
+
+    <div class="captures">
+      <figure>
+        <img src="media/captures/accueil.png" width="1040" height="896" loading="lazy" decoding="async" alt="Capture de l'accueil de Scriibe : chiffres de dictée, graphique sur 14 jours et part par appli">
+        <figcaption>Accueil (tableau de bord)</figcaption>
+      </figure>
+      <figure>
+        <img src="media/captures/commandes-vocales.png" width="1044" height="1222" loading="lazy" decoding="async" alt="Capture de la page Commandes vocales de Scriibe, carte des commandes intégrées dépliée">
+        <figcaption>Commandes vocales</figcaption>
+      </figure>
+      <figure>
+        <img src="media/captures/dictionnaire.png" width="1040" height="1086" loading="lazy" decoding="async" alt="Capture du dictionnaire de Scriibe : mots, corrections et signes dictés">
+        <figcaption>Dictionnaire</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="telecharger">
+  <div class="wrap">
+    <h2>Télécharger</h2>
+    <p class="muted">Le numéro et les tailles viennent de la dernière Release.</p>
+    <div class="table">
+      <table>
+        <thead><tr><th scope="col">Système</th><th scope="col">Ce qu'il faut</th><th scope="col">Fichier</th></tr></thead>
+        <tbody>
+          <tr>
+            <th scope="row">Windows</th>
+            <td>Windows 10 ou 11, 64 bits</td>
+            <td><a href="https://github.com/scarou/Scriibe/releases/latest/download/scriibe-windows-x64.zip">scriibe-windows-x64.zip</a> (20 Mo) · <a href="https://github.com/scarou/Scriibe/blob/main/docs/INSTALLATION_WINDOWS.md">guide pas à pas</a></td>
+          </tr>
+          <tr>
+            <th scope="row">Mac</th>
+            <td>Puce Apple, macOS 14 ou plus récent</td>
+            <td><a href="https://github.com/scarou/Scriibe/releases/latest">fichier Mac de la dernière Release</a> (21 Mo) · <a href="https://github.com/scarou/Scriibe/blob/main/docs/INSTALLATION_MACOS.md">guide pas à pas</a> (avec le Terminal)</td>
+          </tr>
+          <tr>
+            <th scope="row">Linux</th>
+            <td>Ubuntu 25.04 ou plus avec GNOME, ou une session X11</td>
+            <td><a href="https://github.com/scarou/Scriibe/releases/latest/download/scriibe-linux-x64.zip">scriibe-linux-x64.zip</a> (23 Mo) · <a href="https://github.com/scarou/Scriibe/blob/main/docs/INSTALLATION_LINUX.md">guide pas à pas</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note"><strong>Au premier lancement</strong> : Scriibe n'est pas signée (la signature coûte cher). Ton système te prévient la première fois ; les guides montrent comment l'ouvrir quand même. Aucun compte n'est nécessaire.</div>
+    <p><a href="https://github.com/scarou/Scriibe/releases">Toutes les versions</a> et les <a href="https://github.com/scarou/Scriibe#readme">guides pour connaisseurs</a> sur GitHub.</p>
+  </div>
+</section>
+
+<section id="questions">
+  <div class="wrap">
+    <h2>Questions</h2>
+
+    <details>
+      <summary>Où partent mes dictées ?</summary>
+      <p>Ça dépend du moteur que tu choisis dans « Moteurs et modèles ».</p>
+      <ul>
+        <li><strong>Moteurs locaux</strong> (Whisper, llama.cpp, LM Studio, Ollama) : ta voix et ton texte sont traités sur ta machine.</li>
+        <li><strong>Moteurs en ligne</strong> (Deepgram pour la voix, OpenRouter pour la mise au propre), en dépannage : ta voix part chez Deepgram et ton texte chez OpenRouter. Il te faut un compte et une clé personnelle pour chacun, payants à l'usage.</li>
+        <li><strong>Reformulation d'une sélection</strong> : le texte sélectionné ne part que vers un moteur sur ton ordinateur, sauf si tu coches toi-même l'accord pour un moteur en ligne.</li>
+      </ul>
+      <p>Scriibe ne t'impose pas le cloud.</p>
+    </details>
+
+    <details>
+      <summary>Où sont rangés mon historique et mon dictionnaire ?</summary>
+      <p>Sur ta machine, à part du programme : une mise à jour les garde. Tu choisis si le texte de l'historique est conservé et combien de temps. Tes clés en ligne sont dans le trousseau du Mac, le Gestionnaire d'identifiants de Windows ou le trousseau du bureau sous Linux, jamais affichées.</p>
+    </details>
+
+    <details>
+      <summary>Scriibe contacte-t-elle Internet toute seule ?</summary>
+      <p>Aucune télémétrie : rien n'est envoyé sur ton usage. L'alerte de nouvelle version est désactivée par défaut. Les modèles locaux ne se téléchargent qu'avec ton accord, un par un.</p>
+    </details>
+
+    <details>
+      <summary>Faut-il une machine puissante ?</summary>
+      <p>Le local marche mieux avec une bonne carte graphique ou une puce Apple. Sur un portable modeste, la dictée reste possible, plus lente ; les moteurs en ligne sont alors plus rapides. Pour la reformulation, un modèle de quelques milliards de paramètres est conseillé.</p>
+    </details>
+
+    <details>
+      <summary>C'est vraiment gratuit ?</summary>
+      <p>Oui. Scriibe est un logiciel libre sous licence MIT : tu peux l'utiliser, le modifier et le redistribuer. Le don sert à soutenir le travail ; il ne débloque rien.</p>
+    </details>
+
+    <details>
+      <summary>Et Scribe ?</summary>
+      <p>Scribe était la première version, pour Mac seulement. Scriibe prend la suite sur Windows, Mac et Linux.</p>
+    </details>
+
+    <details>
+      <summary>Un problème ?</summary>
+      <p>Page « Mesures et essais » → « Copier le rapport », puis ouvre une demande sur <a href="https://github.com/scarou/Scriibe/issues">GitHub (Issues)</a>.</p>
+    </details>
+  </div>
+</section>
+
+<section id="soutenir">
+  <div class="wrap">
+    <div class="soutien">
+      <h2>Si Scriibe te fait gagner du temps</h2>
+      <p>Scriibe est gratuite et le restera. Si elle te rend service, tu peux laisser ce que tu veux dans le chapeau, à partir de 3 € : un café, un repas. Ça aide à financer le temps passé à la faire évoluer.</p>
+      <div class="boutons">
+        <a class="btn" href="https://ko-fi.com/scriibe">Soutenir sur Ko-fi</a>
+      </div>
+      <p class="discret muted">Le paiement se fait sur Ko-fi, qui ne demande qu’un nom d’affichage et une adresse e-mail. Les moyens de paiement proposés (carte, PayPal) sont ceux de la page Ko-fi.</p>
+      <p class="discret muted">Tu peux aussi aider sans payer : en parler autour de toi, ou signaler un bug.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Licence MIT</span>
+    <a href="https://github.com/scarou/Scriibe">Code source sur GitHub</a>
+    <span>Version <a href="https://github.com/scarou/Scriibe/releases/latest">dernière Release</a></span>
+    <span>Contact : <a href="https://github.com/scarou/Scriibe/issues">Issues GitHub de Scriibe</a></span>
+    <span>Film réalisé avec huashu-motion</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var v=document.getElementById('film'), b=document.getElementById('son');
+  if(!v||!b)return;
+  b.addEventListener('click',function(){
+    var on=v.muted; v.muted=!on; b.setAttribute('aria-pressed',on?'true':'false');
+    b.textContent=on?'Couper le son':'Activer le son';
+    if(on){v.currentTime=0;}
+    var p=v.play(); if(p&&p.catch)p.catch(function(){});
+  });
+  var r=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)');
+  if(r&&r.matches){v.removeAttribute('autoplay');v.pause();v.setAttribute('controls','');}
+})();
+</script>
+</body>
+</html>
