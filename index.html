@@ -82,17 +82,17 @@
 
     <div class="captures">
       <figure>
-        <img src="media/captures/commandes-vocales.png" width="1044" height="1222" loading="lazy" decoding="async" alt="Capture de la page Commandes vocales de Scriibe, carte des commandes intégrées dépliée">
+        <a class="zoom" href="media/captures/commandes-vocales.png" aria-label="Agrandir la capture : Capture de la page Commandes vocales de Scriibe, carte des commandes intégrées dépliée"><img src="media/captures/commandes-vocales.png" width="1044" height="1222" loading="lazy" decoding="async" alt="Capture de la page Commandes vocales de Scriibe, carte des commandes intégrées dépliée"></a>
         <h3>Commandes vocales</h3>
         <p>Sous une seconde touche, dis « nouvelle recherche Google, YouTube, Wikipédia ou DuckDuckGo » suivi du sujet, insère un extrait, ouvre une appli, commence un nouveau mail, ou dis « entre guillemets » pour entourer ta dernière dictée.</p>
       </figure>
       <figure>
-        <img src="media/captures/dictionnaire.png" width="1040" height="1086" loading="lazy" decoding="async" alt="Capture du dictionnaire de Scriibe : mots, corrections et signes dictés">
+        <a class="zoom" href="media/captures/dictionnaire.png" aria-label="Agrandir la capture : Capture du dictionnaire de Scriibe : mots, corrections et signes dictés"><img src="media/captures/dictionnaire.png" width="1040" height="1086" loading="lazy" decoding="async" alt="Capture du dictionnaire de Scriibe : mots, corrections et signes dictés"></a>
         <h3>Ton dictionnaire</h3>
         <p>Tes mots, tes noms propres et tes corrections, modifiables sur place ou dans un tableur.</p>
       </figure>
       <figure>
-        <img src="media/captures/accueil.png" width="1040" height="896" loading="lazy" decoding="async" alt="Capture de l'accueil de Scriibe : chiffres de dictée, graphique sur 14 jours et part par appli">
+        <a class="zoom" href="media/captures/accueil.png" aria-label="Agrandir la capture : Capture de l'accueil de Scriibe : chiffres de dictée, graphique sur 14 jours et part par appli"><img src="media/captures/accueil.png" width="1040" height="896" loading="lazy" decoding="async" alt="Capture de l'accueil de Scriibe : chiffres de dictée, graphique sur 14 jours et part par appli"></a>
         <h3>Ton tableau de bord</h3>
         <p>Tes chiffres de dictée, un graphique sur 14 jours, la part par appli ; l'historique regroupe tes dictées par jour, avec un filtre par appli et par période.</p>
       </figure>
@@ -220,6 +220,8 @@
   </div>
 </footer>
 
+<dialog id="zoom" aria-label="Capture agrandie"><form method="dialog"><button class="btn sec petit" aria-label="Fermer">Fermer</button></form><div id="zoom-img"></div></dialog>
+
 <script>
 (function(){
   var v=document.getElementById('film'), b=document.getElementById('son');
@@ -234,6 +236,17 @@
   if(/iPhone|iPad|Android/i.test(ua))os='';
   else if(/Win/i.test(ua))os='windows'; else if(/Mac/i.test(ua))os='mac'; else if(/Linux|X11/i.test(ua))os='linux';
   if(os){var bs=document.querySelectorAll('#boutons .btn');for(var i=0;i<bs.length;i++){if(bs[i].getAttribute('data-os')!==os)bs[i].className='btn sec';}}
+  var d=document.getElementById('zoom'), links=document.querySelectorAll('a.zoom');
+  if(d&&d.showModal){
+    var box=document.getElementById('zoom-img');
+    for(var j=0;j<links.length;j++){links[j].addEventListener('click',function(e){
+      e.preventDefault(); var im=this.querySelector('img');
+      var big=document.createElement('img'); big.src=this.getAttribute('href'); big.alt=im.alt;
+      box.innerHTML=''; box.appendChild(big);
+      d.showModal();
+    });}
+    d.addEventListener('click',function(e){if(e.target===d)d.close();});
+  }
   var r=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)');
   if(r&&r.matches){v.removeAttribute('autoplay');v.pause();v.setAttribute('controls','');}
 })();

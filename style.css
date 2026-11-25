@@ -64,7 +64,7 @@ nav a.cta{color:var(--brand);font-weight:700}
 .et-aussi{margin-top:1.5rem}
 .etapes{counter-reset:e;list-style:none;padding:0;display:grid;gap:.9rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr))}
 .etapes li{counter-increment:e;background:var(--brand-soft);border-radius:var(--radius);padding:1rem 1.15rem}
-.etapes li::before{content:counter(e);display:inline-grid;place-items:center;width:2rem;height:2rem;border-radius:50%;background:var(--brand);color:var(--brand-ink);font-weight:800;margin-bottom:.5rem}
+.etapes li::before{content:counter(e);display:grid;place-items:center;width:2rem;height:2rem;border-radius:50%;background:var(--brand);color:var(--brand-ink);font-weight:800;margin-bottom:.9rem}
 
 .captures{display:grid;gap:2rem 1.5rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr));margin:1.5rem 0}
 .captures figure{margin:0}
@@ -92,3 +92,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem}
 code{overflow-wrap:anywhere;font-size:.85em}
 .captures img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
 @media (max-width:640px){header.site{position:static}}
+
+a.zoom{display:block;cursor:zoom-in;border-radius:var(--radius)}
+dialog#zoom{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);color:var(--ink);padding:1rem;max-width:min(96vw,70rem);max-height:94vh;overflow:auto}
+dialog#zoom::backdrop{background:rgba(0,0,0,.72)}
+dialog#zoom form{display:flex;justify-content:flex-end;margin-bottom:.75rem}
+dialog#zoom #zoom-img img{width:100%;height:auto;max-width:none;border-radius:8px;aspect-ratio:auto}
