@@ -36,11 +36,11 @@
 
     <div class="boutons" id="boutons">
       <a class="btn" data-os="windows" href="https://github.com/scarou/Scriibe/releases/latest/download/scriibe-windows-x64.zip">Télécharger pour Windows</a>
-      <a class="btn" data-os="mac" href="https://github.com/scarou/Scriibe/releases/latest">Télécharger pour Mac</a>
+      <a class="btn" data-os="mac" href="https://github.com/scarou/Scriibe/releases/latest">Télécharger pour Mac (page de la version)</a>
       <a class="btn" data-os="linux" href="https://github.com/scarou/Scriibe/releases/latest/download/scriibe-linux-x64.zip">Télécharger pour Linux</a>
     </div>
-    <p class="prerequis">Windows 10 ou 11 · Mac avec puce Apple, macOS 14 ou plus récent · Ubuntu 25.04 ou plus avec GNOME, ou une session X11. Sur Mac, le bouton ouvre la page de la version : prends le fichier qui finit par <code>macos.zip</code>.</p>
-    <p class="prerequis"><strong>Scriibe n'est pas signée</strong> : ton système te préviendra au premier lancement, et les <a href="#telecharger">guides pas à pas</a> montrent comment l'ouvrir. Aucun compte n'est nécessaire.</p>
+    <p class="prerequis" id="ligne">Gratuit · Windows, Mac, Linux · aucun compte. <a href="#telecharger">Prérequis et premier lancement</a></p>
+    <p class="prerequis" id="mobile" hidden><strong>Scriibe s'installe sur ordinateur</strong> (Windows, Mac ou Linux) : ouvre cette page depuis ton ordinateur pour la télécharger.</p>
 
     <figure class="film">
       <video id="film" autoplay muted loop playsinline preload="metadata" poster="media/film/scriibe-film-a-attente.jpg" width="1280" height="720" aria-label="Scriibe en une minute">
@@ -127,7 +127,7 @@
           <tr>
             <th scope="row">Mac</th>
             <td>Puce Apple, macOS 14 ou plus récent</td>
-            <td><a href="https://github.com/scarou/Scriibe/releases/latest">fichier Mac de la dernière Release</a> (21 Mo) · <a href="https://github.com/scarou/Scriibe/blob/main/docs/INSTALLATION_MACOS.md">guide pas à pas</a> (avec le Terminal)</td>
+            <td><a href="https://github.com/scarou/Scriibe/releases/latest">page de la dernière Release</a> : prends le fichier qui finit par <code>macos.zip</code> (21 Mo) · <a href="https://github.com/scarou/Scriibe/blob/main/docs/INSTALLATION_MACOS.md">guide pas à pas</a> (avec le Terminal)</td>
           </tr>
           <tr>
             <th scope="row">Linux</th>
@@ -137,7 +137,7 @@
         </tbody>
       </table>
     </div>
-    <div class="note"><strong>Au premier lancement</strong> : Scriibe n'est pas signée (la signature coûte cher). Ton système te prévient la première fois ; les guides montrent comment l'ouvrir quand même. Aucun compte n'est nécessaire.</div>
+    <div class="note"><strong>Au premier lancement</strong> : Scriibe n'est pas signée (la signature coûte cher). Sur Mac, le bouton « Télécharger » ouvre la page de la version, car le nom du fichier contient le numéro de version. Ton système te prévient la première fois ; les guides montrent comment l'ouvrir quand même. Aucun compte n'est nécessaire.</div>
     <p><a href="https://github.com/scarou/Scriibe/releases">Toutes les versions</a> et les <a href="https://github.com/scarou/Scriibe#readme">guides pour connaisseurs</a> sur GitHub.</p>
   </div>
 </section>
@@ -232,10 +232,14 @@
     if(on){v.currentTime=0;}
     var p=v.play(); if(p&&p.catch)p.catch(function(){});
   });
-  var ua=(navigator.userAgentData&&navigator.userAgentData.platform||navigator.platform||'')+' '+navigator.userAgent, os='';
-  if(/iPhone|iPad|Android/i.test(ua))os='';
-  else if(/Win/i.test(ua))os='windows'; else if(/Mac/i.test(ua))os='mac'; else if(/Linux|X11/i.test(ua))os='linux';
-  if(os){var bs=document.querySelectorAll('#boutons .btn');for(var i=0;i<bs.length;i++){if(bs[i].getAttribute('data-os')!==os)bs[i].className='btn sec';}}
+  var ua=(navigator.userAgentData&&navigator.userAgentData.platform||navigator.platform||'')+' '+navigator.userAgent, os='', noms={windows:'Windows',mac:'Mac',linux:'Linux'};
+  var mob=/iPhone|iPad|Android/i.test(ua);
+  if(!mob){if(/Win/i.test(ua))os='windows'; else if(/Mac/i.test(ua))os='mac'; else if(/Linux|X11/i.test(ua))os='linux';}
+  var bs=document.querySelectorAll('#boutons .btn');
+  if(os||mob){for(var i=0;i<bs.length;i++){if(bs[i].getAttribute('data-os')!==os)bs[i].className='btn sec';}}
+  var li=document.getElementById('ligne'), mo=document.getElementById('mobile');
+  if(os&&li)li.insertAdjacentText('afterbegin','Ton système : '+noms[os]+' · ');
+  if(mob&&mo)mo.hidden=false;
   var d=document.getElementById('zoom'), links=document.querySelectorAll('a.zoom');
   if(d&&d.showModal){
     var box=document.getElementById('zoom-img');
